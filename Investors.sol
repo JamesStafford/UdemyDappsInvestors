@@ -1,10 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.0;
 
-// TODO:
-//      Build a smart contract that can add investor wallets
-//      to a decentralized bank and then allocate (pay) them funds.
-//      Pay a few accounts some funds of your choose and when you're done run the checkInvestors testing function.
 contract AddressWallets {
     address bankAddress;
 
@@ -22,5 +18,9 @@ contract AddressWallets {
 
     function checkInvestors() public view returns (uint) {
         return investorWallets.length;
+    }
+
+    function checkInvestorFundAmount(address investorWallet) public view returns(uint) {
+        return investors[investorWallet];
     }
 }
