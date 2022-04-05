@@ -20,7 +20,12 @@ contract Investors {
         funds[investorAddress] = amount;
     }
 
-    function viewFunds() public view returns(mapping(address => uint)) {
-        return funds;
+    function viewFunds() public view returns(string memory) {
+        string memory investorsFundsSummary = "";
+        for (uint investorIndex = 0; investorIndex < investors.length; investorIndex++) {
+            address investor = investors[investorIndex];
+            investorsFundsSummary = 'Investor: "' + investor + '" has fund value of "' + funds[investor] + '".\n';
+        }
+        return investorsFundsSummary;
     }
 }
