@@ -8,7 +8,7 @@ pragma solidity ^0.8.0;
 contract Investors {
     address bankAddress;
 
-    constructor() payable public {
+    constructor() payable {
         bankAddress = msg.sender;
     }
 
