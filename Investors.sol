@@ -19,4 +19,8 @@ contract Investors {
         investors.push(investorAddress);
         funds[investorAddress] = amount;
     }
+
+    function viewFunds() public view returns(mapping(address => uint)) {
+        return funds;
+    }
 }
