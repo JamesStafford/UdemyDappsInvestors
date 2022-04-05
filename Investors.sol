@@ -2,12 +2,6 @@
 pragma solidity ^0.8.0;
 
 contract AddressWallets {
-    address bankAddress;
-
-    constructor() payable {
-        bankAddress = msg.sender;
-    }
-
     address payable[] investorWallets;
     mapping(address => uint) investors;
 
