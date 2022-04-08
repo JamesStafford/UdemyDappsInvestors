@@ -14,15 +14,22 @@ pragma solidity ^0.8.0;
         6. Deploy the contract and test for successful transactions. (Hint: watch out for wei conversations!!)
 */
 contract AddressWallets {
+    address owner;
     uint bankFundAmount;
 
-    constructor()
+    constructor() payable
     {
-        bankFundAmount = mgs.amount;
+        owner = msg.sender;
+        bankFundAmount = msg.value;
     }
 
     address payable[] investorWallets;
     mapping(address => uint) investors;
+
+    modifier onlyOwner {
+        require(owner == msg.sender);
+        _;
+    }
 
     function payInvestors(address payable investorAddress, uint amount) public {
         investorWallets.push(investorAddress);
