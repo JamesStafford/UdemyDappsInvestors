@@ -6,7 +6,7 @@ pragma solidity ^0.8.0;
     payouts
 
     Exercise:
-        1. Create a constructor function which can allocate an initial payable value to the contract upon deployment.
+        1. (/) Create a constructor function which can allocate an initial payable value to the contract upon deployment.
         2. Create a function called payout which explicitly prohibits outside visibility in the strict sense.
         3. Write a for loop in the function that iterates over all the wallets of the investors.
         4. While iterating through the wallets the loop should return a transfers of ethers equal to the amounts in each wallet.
@@ -15,6 +15,13 @@ pragma solidity ^0.8.0;
         6. Deploy the contract and test for successful transactions. (Hint: watch out for wei conversations!!)
 */
 contract AddressWallets {
+    uint bankFundAmount;
+
+    constructor()
+    {
+        bankFundAmount = mgs.amount;
+    }
+
     address payable[] investorWallets;
     mapping(address => uint) investors;
 
